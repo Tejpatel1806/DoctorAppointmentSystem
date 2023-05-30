@@ -1,5 +1,5 @@
 const express = require('express');
-const { loginController, registerController, authController, applyDoctorController, getAllNotificationController, deleteAllNotificationController, getAllDoctorsController } = require('../controllers/userCtrl');
+const { loginController, registerController, authController, applyDoctorController, getAllNotificationController, deleteAllNotificationController, getAllDoctorsController, bookAppointmentController,bookingAvailabilityController } = require('../controllers/userCtrl');
 const authMiddleware = require('../middlewares/authMiddleware');
 //Router Object aama express ni badhi routing functionality add thai jase
 const router = express.Router();
@@ -30,5 +30,9 @@ router.post('/get-all-notification', authMiddleware, getAllNotificationControlle
 
 router.post('/delete-all-notification', authMiddleware, deleteAllNotificationController);
 router.get('/get-All-Doctors', authMiddleware, getAllDoctorsController);
+
+router.post('/book-appointment', authMiddleware, bookAppointmentController);
+
+router.post('/booking-availability',authMiddleware,bookingAvailabilityController);
 
 module.exports = router;
